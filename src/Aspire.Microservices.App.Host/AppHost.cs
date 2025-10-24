@@ -4,8 +4,8 @@ var postgres = builder
        .WithHostPort(5432)
        .WithDataVolume()
        .WithLifetime(ContainerLifetime.Persistent);
-var notesDb = postgres.AddDatabase("notes"); 
-var tagsDb = postgres.AddDatabase("tags"); 
+var notesDb = postgres.AddDatabase("notes-db"); 
+var tagsDb = postgres.AddDatabase("tags-db"); 
 var tagsApi = builder
        .AddProject<Projects.Aspire_Microservices_Api_Tags>("tags-api")
        .WithReference(tagsDb)
