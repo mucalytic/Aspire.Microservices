@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Microservices.Api.No
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Microservices.Api.Tags", "src\Aspire.Microservices.Api.Tags\Aspire.Microservices.Api.Tags.csproj", "{A9541D77-D0DA-4D1E-904E-056A18C3FA89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Microservices.Contracts", "src\Aspire.Microservices.Contracts\Aspire.Microservices.Contracts.csproj", "{F5C644B5-95A5-451D-A44A-03216BFD6CC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,7 @@ Global
 		{E42C82A7-6253-447D-A1AF-76E25C04EC46} = {D9B008FC-DB3C-4042-B800-3948720D5580}
 		{7D5E7C8D-2BB7-42FC-B6D4-9B182FDF6134} = {D9B008FC-DB3C-4042-B800-3948720D5580}
 		{A9541D77-D0DA-4D1E-904E-056A18C3FA89} = {D9B008FC-DB3C-4042-B800-3948720D5580}
+		{F5C644B5-95A5-451D-A44A-03216BFD6CC8} = {D9B008FC-DB3C-4042-B800-3948720D5580}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EBC95945-D30E-4A80-BC0D-0D63FA054356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -38,5 +41,9 @@ Global
 		{A9541D77-D0DA-4D1E-904E-056A18C3FA89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9541D77-D0DA-4D1E-904E-056A18C3FA89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9541D77-D0DA-4D1E-904E-056A18C3FA89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5C644B5-95A5-451D-A44A-03216BFD6CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5C644B5-95A5-451D-A44A-03216BFD6CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5C644B5-95A5-451D-A44A-03216BFD6CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5C644B5-95A5-451D-A44A-03216BFD6CC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
