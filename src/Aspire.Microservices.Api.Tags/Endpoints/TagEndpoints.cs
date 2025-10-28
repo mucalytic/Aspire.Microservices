@@ -7,15 +7,14 @@ public static class TagEndpoints
 {
     public static IEndpointRouteBuilder MapTagEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapPost("tags/analyse", (AnalyseTagsRequest request, ITagsService notesService) =>
+        app.MapPost("tags/extract", (ExtractTagsRequest request, ITagsService tagsService) =>
             {
                 return Results.Ok();
             })
-            .Produces<TagsAnalysedResponse>()
-            .WithTags(Constants.EndpointNames.Tags)
-            .WithOpenApi()
-            .MapToApiVersion(1);
-        
+           .Produces<TagsResponse>()
+           .WithTags(Constants.EndpointNames.Tags)
+           .WithOpenApi()
+           .MapToApiVersion(1);
         return app;
     }
 }

@@ -1,3 +1,4 @@
 namespace Aspire.Microservices.Contracts.Notes;
 
-public record CreateNoteRequest();
+public record CreateNoteRequest(string Title, string Content);
+
