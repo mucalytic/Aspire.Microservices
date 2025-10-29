@@ -9,7 +9,10 @@ public static class TagEndpoints
     {
         app.MapPost("tags/extract", (ExtractTagsRequest request, ITagsService tagsService) =>
             {
-                return Results.Ok();
+                var result = tagsService.ExtractTags(request);
+                return result.IsFailed
+                    ? Results.Problem(string.Empty)
+                    : Results.Created(Constants.Uris.NoUri, result.Value.ToTagsExtractedResponse(request.NoteId));
             })
            .Produces<IEnumerable<TagResponse>>()
            .WithTags(Constants.EndpointNames.Tags)

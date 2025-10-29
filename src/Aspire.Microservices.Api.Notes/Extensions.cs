@@ -11,16 +11,17 @@ public static class Extensions
     public static ExtractTagsRequest ToExtractTagsRequest(this Note note) =>
         new(note.Id, note.Title, note.Content);
     
-    public static IEnumerable<Tag> ToTags(this IEnumerable<TagResponse> response, Guid noteId) =>
+    public static IEnumerable<Tag> ToTags(this TagsExtractedResponse response) =>
         response
-            .Select(r =>
+            .Tags
+            .Select(tag =>
                 new Tag
                 {
-                    Id = r.TagId,
-                    Name = r.Name,
-                    NoteId = noteId,
-                    Colour = r.Colour,
-                    CreatedAtUtc = r.CreatedAtUtc
+                    Id = tag.TagId,
+                    Name = tag.Name,
+                    Colour = tag.Colour,
+                    NoteId = response.NoteId,
+                    CreatedAtUtc = tag.CreatedAtUtc
                 })
             .Distinct();
 }

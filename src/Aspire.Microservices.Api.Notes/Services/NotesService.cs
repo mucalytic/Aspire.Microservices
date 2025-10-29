@@ -29,10 +29,10 @@ public class NotesService(
             var json = JsonSerializer.Serialize(note.ToExtractTagsRequest());
             var content = new StringContent(json, Encoding.UTF8, Application.Json);
             var message = await client.PostAsync("api/v1/tags/extract", content);
-            var response = await message.Content.ReadFromJsonAsync<IEnumerable<TagResponse>>();
+            var response = await message.Content.ReadFromJsonAsync<TagsExtractedResponse>();
             if (response is not null)
             {
-                var tags = response.ToTags(note.Id);
+                var tags = response.ToTags();
                 logger.LogInformation("Got tags from endpoint: {Tags}", tags);
                 note.Tags = tags;
             }
