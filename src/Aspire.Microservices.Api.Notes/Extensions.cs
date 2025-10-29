@@ -10,6 +10,6 @@ public static class Extensions
     public static ExtractTagsRequest ToExtractTagsRequest(this Note note) =>
         new(note.Id, note.Title, note.Content);
     
-    public static IEnumerable<string> ToTags(this TagsResponse response) =>
-        response.Tags;
+    public static IEnumerable<string> ToTags(this IEnumerable<TagResponse> response) =>
+        response.Select(r => r.Name).Distinct();
 }

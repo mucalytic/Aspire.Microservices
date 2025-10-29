@@ -28,15 +28,21 @@ public class NotesService(
             var json = JsonSerializer.Serialize(note.ToExtractTagsRequest());
             var content = new StringContent(json, Encoding.UTF8, Application.Json);
             var message = await client.PostAsync("api/v1/tags/extract", content);
-            var response = await message.Content.ReadFromJsonAsync<TagsResponse>();
-            if (response is not null) note.Tags = response.ToTags();
+            var response = await message.Content.ReadFromJsonAsync<IEnumerable<TagResponse>>();
+            if (response is not null)
+            {
+                var tags = response.ToTags();
+                logger.LogInformation("Got tags from endpoint: {Tags}", tags);
+                note.Tags = tags;
+            }
             context.Notes.Add(note);
             await context.SaveChangesAsync();
+            logger.LogInformation("Created and saved note: {Note}", note);
             return note;
         }
         catch (Exception exception)
         {
-            logger.LogError(exception, exception.Message);
+            logger.LogError(exception, "Exception: {Message}", exception.Message);
             return Result.Fail<Note>(exception.Message);
         }
     }

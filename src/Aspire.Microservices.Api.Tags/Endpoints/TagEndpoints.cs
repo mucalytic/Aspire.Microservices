@@ -11,7 +11,7 @@ public static class TagEndpoints
             {
                 return Results.Ok();
             })
-           .Produces<TagsResponse>()
+           .Produces<IEnumerable<TagResponse>>()
            .WithTags(Constants.EndpointNames.Tags)
            .WithOpenApi()
            .MapToApiVersion(1);
