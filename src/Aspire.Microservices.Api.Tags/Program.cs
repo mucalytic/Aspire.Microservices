@@ -13,6 +13,7 @@ builder.Services.AddDbContext<TagsContext>(options =>
 builder.EnrichNpgsqlDbContext<TagsContext>();
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<ITagsService, TagsService>();
+builder.Services.AddScoped<IStorageService, StorageService>();
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())

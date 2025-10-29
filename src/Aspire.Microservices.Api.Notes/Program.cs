@@ -14,6 +14,8 @@ builder.EnrichNpgsqlDbContext<NotesContext>();
 builder.Services.AddOpenApi();
 builder.Services.AddHttpClient(Constants.HttpClientNames.TagApi, client =>
     client.BaseAddress = new Uri("https+http://tags-api"));
+builder.Services.AddScoped<IStorageService, StorageService>();
+builder.Services.AddScoped<IRequestService, RequestService>();
 builder.Services.AddScoped<INotesService, NotesService>();
 
 var app = builder.Build();

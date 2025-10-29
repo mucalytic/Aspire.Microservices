@@ -7,14 +7,14 @@ public static class TagEndpoints
 {
     public static IEndpointRouteBuilder MapTagEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapPost("tags/extract", (ExtractTagsRequest request, ITagsService tagsService) =>
+        app.MapPost("tags/extract", async (ExtractTagsRequest request, ITagsService tagsService) =>
             {
-                var result = tagsService.ExtractTags(request);
+                var result = await tagsService.ExtractTagsAsync(request);
                 return result.IsFailed
                     ? Results.Problem(string.Empty)
-                    : Results.Created(Constants.Uris.NoUri, result.Value.ToTagsExtractedResponse(request.NoteId));
+                    : Results.Created(Constants.Uris.NoUri, new TagsExtractedResponse(request.NoteId, result.Value));
             })
-           .Produces<IEnumerable<TagResponse>>()
+           .Produces<TagsExtractedResponse>()
            .WithTags(Constants.EndpointNames.Tags)
            .WithOpenApi()
            .MapToApiVersion(1);
