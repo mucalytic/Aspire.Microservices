@@ -2,6 +2,7 @@ using Aspire.Microservices.Api.Notes.Interfaces;
 using static System.Net.Mime.MediaTypeNames;
 using Aspire.Microservices.Contracts.Notes;
 using Aspire.Microservices.Contracts.Tags;
+using Aspire.Microservices.Domain;
 using System.Text.Json;
 using FluentResults;
 using System.Text;
@@ -31,7 +32,7 @@ public class NotesService(
             var response = await message.Content.ReadFromJsonAsync<IEnumerable<TagResponse>>();
             if (response is not null)
             {
-                var tags = response.ToTags();
+                var tags = response.ToTags(note.Id);
                 logger.LogInformation("Got tags from endpoint: {Tags}", tags);
                 note.Tags = tags;
             }

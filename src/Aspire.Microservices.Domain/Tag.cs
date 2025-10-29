@@ -1,4 +1,4 @@
-namespace Aspire.Microservices.Api.Tags;
+namespace Aspire.Microservices.Domain;
 
 public class Tag
 {

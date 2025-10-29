@@ -20,6 +20,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Aspire.Microservices.Contracts\Aspire.Microservices.Contracts.csproj" />
+      <ProjectReference Include="..\Aspire.Microservices.Domain\Aspire.Microservices.Domain.csproj" />
       <ProjectReference Include="..\Aspire.Microservices.Service.Defaults\Aspire.Microservices.Service.Defaults.csproj" />
     </ItemGroup>
 
