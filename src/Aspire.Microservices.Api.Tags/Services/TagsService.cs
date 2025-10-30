@@ -1,6 +1,6 @@
 using Aspire.Microservices.Api.Tags.Interfaces;
 using Aspire.Microservices.Contracts.Tags;
-using Aspire.Microservices.Domain;
+using Aspire.Microservices.Domain.Models;
 using FluentResults;
 
 namespace Aspire.Microservices.Api.Tags.Services;

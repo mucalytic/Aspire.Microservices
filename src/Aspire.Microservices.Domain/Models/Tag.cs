@@ -1,4 +1,4 @@
-namespace Aspire.Microservices.Domain;
+namespace Aspire.Microservices.Domain.Models;
 
 public class Tag
 {
@@ -9,5 +9,5 @@ public class Tag
     public DateTime CreatedAtUtc { get; set; }
 
     public override string ToString() =>
-        $"Id: {Id}, Name: {Name}, Colour: {Colour}, NoteId: {NoteId},  CreatedAtUtc: {CreatedAtUtc}";
+        $"Id: {Id}, Name: {Name}, Colour: {Colour}, NoteId: {NoteId}, CreatedAtUtc: {CreatedAtUtc}";
 }

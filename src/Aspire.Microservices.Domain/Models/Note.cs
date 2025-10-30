@@ -1,4 +1,4 @@
-namespace Aspire.Microservices.Domain;
+namespace Aspire.Microservices.Domain.Models;
 
 public class Note
 {
@@ -10,5 +10,5 @@ public class Note
     public IEnumerable<Tag> Tags         { get; set; } = [];
 
     public override string ToString() =>
-        $"Id: {Id}, Title: {Title}, Content: {Content}, CreatedAtUtc: {CreatedAtUtc}, UpdatedAtUtc: {UpdatedAtUtc}, Tags: [{string.Join(';',  Tags)}]";
+        $"Id: {Id}, Title: {Title}, Content: {Content}, CreatedAtUtc: {CreatedAtUtc}, UpdatedAtUtc: {UpdatedAtUtc}, Tags: [{string.Join(';', Tags)}]";
 }

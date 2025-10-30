@@ -1,5 +1,5 @@
 using Aspire.Microservices.Api.Notes.Interfaces;
-using Aspire.Microservices.Domain;
+using Aspire.Microservices.Domain.Models;
 using System.Reactive;
 using FluentResults;
 

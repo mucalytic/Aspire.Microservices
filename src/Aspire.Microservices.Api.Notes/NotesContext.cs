@@ -1,5 +1,5 @@
+using Aspire.Microservices.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using Aspire.Microservices.Domain;
 
 namespace Aspire.Microservices.Api.Notes;
 

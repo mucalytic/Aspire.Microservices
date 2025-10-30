@@ -1,11 +1,10 @@
-using System.Net.Security;
-using Aspire.Microservices.Api.Notes.Extensions;
 using Aspire.Microservices.Api.Notes.Interfaces;
 using Aspire.Microservices.Api.Notes.Endpoints;
 using Aspire.Microservices.Api.Notes.Services;
 using Aspire.Microservices.Api.Notes.Options;
 using Aspire.Microservices.Api.Notes;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Security;
 using Asp.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);

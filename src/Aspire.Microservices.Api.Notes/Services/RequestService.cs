@@ -1,6 +1,6 @@
 using Aspire.Microservices.Api.Notes.Interfaces;
-using Aspire.Microservices.Api.Notes.Extensions;
 using Aspire.Microservices.Contracts.Tags;
+using Aspire.Microservices.Domain.Models;
 using Aspire.Microservices.Domain;
 using System.Text.Json;
 using System.Net.Mime;

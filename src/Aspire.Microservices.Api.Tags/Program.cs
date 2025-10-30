@@ -1,4 +1,3 @@
-using Aspire.Microservices.Api.Tags.Extensions;
 using Aspire.Microservices.Api.Tags.Interfaces;
 using Aspire.Microservices.Api.Tags.Endpoints;
 using Aspire.Microservices.Api.Tags.Services;

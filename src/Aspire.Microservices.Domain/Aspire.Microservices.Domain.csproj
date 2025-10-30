@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Aspire.Microservices.Contracts\Aspire.Microservices.Contracts.csproj" />
+    </ItemGroup>
+
 </Project>
