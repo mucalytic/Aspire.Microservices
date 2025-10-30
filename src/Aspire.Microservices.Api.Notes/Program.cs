@@ -1,3 +1,4 @@
+using System.Net.Security;
 using Aspire.Microservices.Api.Notes.Extensions;
 using Aspire.Microservices.Api.Notes.Interfaces;
 using Aspire.Microservices.Api.Notes.Endpoints;
@@ -18,7 +19,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddApiVersioning(ApiOptions.ApiVersioningOptions)
                 .AddApiExplorer(ApiOptions.ApiExplorerOptions);
 builder.Services.AddHttpClient(Constants.HttpClientNames.TagApi, client =>
-    client.BaseAddress = new Uri("https+http://tags-api"));
+    client.BaseAddress = new Uri("https+http://tags-api"))
+                .ConfigurePrimaryHttpMessageHandler(() =>
+                    new HttpClientHandler
+                    {
+                        ServerCertificateCustomValidationCallback = (_, _, _, errors) =>
+                        {
+                            if (builder.Environment.IsDevelopment()) return true;
+                            return errors == SslPolicyErrors.None;
+                        }
+                    })
+                .AddStandardResilienceHandler();
 builder.Services.AddScoped<IStorageService, StorageService>();
 builder.Services.AddScoped<IRequestService, RequestService>();
 builder.Services.AddScoped<INotesService, NotesService>();
