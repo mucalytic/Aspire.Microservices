@@ -1,3 +1,4 @@
+using Aspire.Microservices.Api.Notes.Extensions;
 using Aspire.Microservices.Api.Notes.Interfaces;
 using Aspire.Microservices.Api.Notes.Endpoints;
 using Aspire.Microservices.Api.Notes.Services;
@@ -22,9 +23,6 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    using var scope = app.Services.CreateScope();
-    var context =  scope.ServiceProvider.GetRequiredService<NotesContext>();
-    context.Database.Migrate();
 }
 app.MapGroup("/api/v{v:apiVersion}")
    .WithApiVersionSet(app.NewApiVersionSet()
@@ -33,4 +31,5 @@ app.MapGroup("/api/v{v:apiVersion}")
        .Build())
    .MapNoteEndpoints();
 app.UseHttpsRedirection();
+app.MigrateDatabase();
 app.Run();

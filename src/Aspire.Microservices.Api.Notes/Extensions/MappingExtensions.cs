@@ -2,9 +2,9 @@ using Aspire.Microservices.Contracts.Notes;
 using Aspire.Microservices.Contracts.Tags;
 using Aspire.Microservices.Domain;
 
-namespace Aspire.Microservices.Api.Notes;
+namespace Aspire.Microservices.Api.Notes.Extensions;
 
-public static class Extensions
+public static class MappingExtensions
 {
     public static NoteCreatedResponse ToNoteCreatedResponse(this Note note) => new();
 

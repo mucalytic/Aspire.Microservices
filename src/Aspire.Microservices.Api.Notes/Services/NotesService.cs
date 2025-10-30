@@ -1,3 +1,4 @@
+using Aspire.Microservices.Api.Notes.Extensions;
 using Aspire.Microservices.Api.Notes.Interfaces;
 using Aspire.Microservices.Contracts.Notes;
 using Aspire.Microservices.Domain;

@@ -1,3 +1,4 @@
+using Aspire.Microservices.Api.Tags.Extensions;
 using Aspire.Microservices.Api.Tags.Interfaces;
 using Aspire.Microservices.Api.Tags.Endpoints;
 using Aspire.Microservices.Api.Tags.Services;
@@ -19,9 +20,6 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    using var scope = app.Services.CreateScope();
-    var context =  scope.ServiceProvider.GetRequiredService<TagsContext>();
-    context.Database.Migrate();
 }
 app.MapGroup("/api/v{v:apiVersion}")
    .WithApiVersionSet(app.NewApiVersionSet()
@@ -30,4 +28,5 @@ app.MapGroup("/api/v{v:apiVersion}")
        .Build())
    .MapTagEndpoints();
 app.UseHttpsRedirection();
+app.MigrateDatabase();
 app.Run();
