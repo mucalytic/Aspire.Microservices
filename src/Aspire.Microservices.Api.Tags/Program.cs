@@ -2,6 +2,7 @@ using Aspire.Microservices.Api.Tags.Extensions;
 using Aspire.Microservices.Api.Tags.Interfaces;
 using Aspire.Microservices.Api.Tags.Endpoints;
 using Aspire.Microservices.Api.Tags.Services;
+using Aspire.Microservices.Api.Tags.Options;
 using Aspire.Microservices.Api.Tags;
 using Microsoft.EntityFrameworkCore;
 using Asp.Versioning;
@@ -13,6 +14,9 @@ builder.Services.AddDbContext<TagsContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("tags-db")));
 builder.EnrichNpgsqlDbContext<TagsContext>();
 builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddApiVersioning(ApiOptions.ApiVersioningOptions)
+                .AddApiExplorer(ApiOptions.ApiExplorerOptions);
 builder.Services.AddScoped<ITagsService, TagsService>();
 builder.Services.AddScoped<IStorageService, StorageService>();
 
