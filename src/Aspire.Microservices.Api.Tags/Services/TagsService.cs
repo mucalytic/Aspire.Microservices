@@ -35,7 +35,7 @@ public class TagsService(IStorageService storageService, ILogger<TagsService> lo
                 CreatedAtUtc = DateTime.UtcNow                
             })
             .ToList();
-        logger.LogInformation("Got tags from extract tags request for note: {NoteId}", request.NoteId);
+        logger.LogInformation("Got {Count} tags from extract tags request for note: {NoteId}: {Tags}", tags.Count, request.NoteId, tags);
         var storeTagsResult = await storageService.StoreTags(tags);
         if (storeTagsResult.IsSuccess)
         {
