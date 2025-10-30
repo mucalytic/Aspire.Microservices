@@ -10,5 +10,5 @@ public class Note
     public IEnumerable<Tag> Tags         { get; set; } = [];
 
     public override string ToString() =>
-        $"Id: {Id}, Title: {Title}, Content: {Content},  CreatedAtUtc: {CreatedAtUtc}, UpdatedAtUtc: {UpdatedAtUtc}";
+        $"Id: {Id}, Title: {Title}, Content: {Content}, CreatedAtUtc: {CreatedAtUtc}, UpdatedAtUtc: {UpdatedAtUtc}, Tags: [{string.Join(';',  Tags)}]";
 }

@@ -21,7 +21,7 @@ public class TagsService(IStorageService storageService, ILogger<TagsService> lo
         { "note",      ("Note",      "#6B7280") }
     };
     
-    public async Task<Result<IEnumerable<TagResponse>>> ExtractTagsAsync(ExtractTagsRequest request)
+    public async Task<Result<IEnumerable<Tag>>> ExtractTagsAsync(ExtractTagsRequest request)
     {
         var text = string.Join(' ', request.Title, request.Content);
         var tags = _keywords
@@ -39,9 +39,13 @@ public class TagsService(IStorageService storageService, ILogger<TagsService> lo
         var storeTagsResult = await storageService.StoreTags(tags);
         if (storeTagsResult.IsSuccess)
         {
-            logger.LogInformation("Created and stored tags: {Tags}", tags);
+            logger.LogInformation("Stored tags: {Tags}", tags);
         }
-        var responses = tags.Select(t => new TagResponse(t.Id, t.Name, t.Colour, t.CreatedAtUtc));
-        return Result.Ok(responses);
+        else
+        {
+            logger.LogInformation("Failed to store tags: {Tags}", tags);
+        }
+        logger.LogInformation("Returning tags: {Tags}", tags);
+        return Result.Ok(tags.AsEnumerable());
     }
 }

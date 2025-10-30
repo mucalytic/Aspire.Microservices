@@ -6,5 +6,5 @@ namespace Aspire.Microservices.Api.Tags.Interfaces;
 
 public interface ITagsService
 {
-    Task<Result<IEnumerable<TagResponse>>> ExtractTagsAsync(ExtractTagsRequest request);
+    Task<Result<IEnumerable<Tag>>> ExtractTagsAsync(ExtractTagsRequest request);
 }

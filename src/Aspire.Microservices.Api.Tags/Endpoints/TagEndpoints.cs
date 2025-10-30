@@ -1,3 +1,4 @@
+using Aspire.Microservices.Api.Tags.Extensions;
 using Aspire.Microservices.Api.Tags.Interfaces;
 using Aspire.Microservices.Contracts.Tags;
 
@@ -12,7 +13,7 @@ public static class TagEndpoints
                 var result = await tagsService.ExtractTagsAsync(request);
                 return result.IsFailed
                     ? Results.Problem(string.Empty)
-                    : Results.Created(Constants.Uris.NoUri, new TagsExtractedResponse(request.NoteId, result.Value));
+                    : Results.Created(Constants.Uris.NoUri, new TagsExtractedResponse(request.NoteId, result.Value.ToTagResponses()));
             })
            .Produces<TagsExtractedResponse>()
            .WithTags(Constants.EndpointNames.Tags)
