@@ -1,6 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{7B169028-0404-4C80-BE5C-ECA3A3E13CD5}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D9B008FC-DB3C-4042-B800-3948720D5580}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FBBCA6F2-FE47-402E-8921-9057DB9FF0B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Microservices.App.Host", "src\Aspire.Microservices.App.Host\Aspire.Microservices.App.Host.csproj", "{EBC95945-D30E-4A80-BC0D-0D63FA054356}"
 EndProject
